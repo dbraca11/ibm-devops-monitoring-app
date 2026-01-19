@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  # Tu aplicación de monitoreo (Capa de Aplicación)
+  app-monitor:
+    build: .
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - db-bancaria
+
+  # Tu base de datos (Capa de Persistencia)
+  db-bancaria:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: password_seguro_123
+
+
